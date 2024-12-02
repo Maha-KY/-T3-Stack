@@ -1,14 +1,18 @@
-import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import { defineConfig } from 'tailwindcss'
 
-export default {
-  content: ["./src/**/*.tsx"],
+export default defineConfig({
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@shadcn/ui/**/*.{js,ts,jsx,tsx}'
+  ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+      colors: {
+        // Define custom colors if necessary
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [require('@tailwindcss/forms')],
+})
+
